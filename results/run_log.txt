@@ -1,0 +1,48 @@
+scene 0: 20 visible GT objects, clean recall 1.00
+scene 1: 20 visible GT objects, clean recall 1.00
+scene 2: 21 visible GT objects, clean recall 0.86
+scene 3: 23 visible GT objects, clean recall 1.00
+scene 4: 20 visible GT objects, clean recall 0.85
+scene 5: 22 visible GT objects, clean recall 1.00
+scene 6: 22 visible GT objects, clean recall 1.00
+scene 7: 23 visible GT objects, clean recall 0.91
+
+corruption      sev  param recall +- std   drop    FP objpts health  worst_component   verdict
+clean             0  0.000  0.953+-0.064   0.0%   1.2   1.00   0.98  ground_flatness   ok
+dropout           1  0.200  0.935+-0.085   1.8%  13.0   0.80   0.89  return_rate       ok
+dropout           2  0.400  0.918+-0.098   3.7%  16.6   0.61   0.67  return_rate       false alarm
+dropout           3  0.600  0.825+-0.115  13.4%  16.9   0.40   0.00  sector_coverage   caught
+dropout           4  0.800  0.685+-0.105  28.1%  20.1   0.20   0.00  beam_coverage     caught
+dropout           5  0.900  0.500+-0.062  47.5%  24.5   0.10   0.00  beam_coverage     caught
+gaussian_noise    1  0.020  0.953+-0.064   0.0%   1.9   1.00   0.97  ground_flatness   ok
+gaussian_noise    2  0.050  0.953+-0.064   0.0%   3.9   1.00   0.90  ground_flatness   ok
+gaussian_noise    3  0.100  0.941+-0.071   1.2%  12.5   1.00   0.62  ground_flatness   false alarm
+gaussian_noise    4  0.150  0.761+-0.060  20.1%  24.2   1.00   0.25  ground_flatness   caught
+gaussian_noise    5  0.250  0.655+-0.062  31.2%  65.0   1.00   0.00  ground_flatness   caught
+beam_missing      1  0.200  0.909+-0.144   4.6%   1.8   0.81   0.82  beam_coverage     ok
+beam_missing      2  0.400  0.813+-0.142  14.7%   2.6   0.52   0.50  beam_coverage     caught
+beam_missing      3  0.600  0.766+-0.266  19.6%   2.1   0.39   0.00  sector_coverage   caught
+beam_missing      4  0.750  0.550+-0.233  42.3%   2.0   0.22   0.00  sector_coverage   caught
+beam_missing      5  0.875  0.510+-0.312  46.4%   2.6   0.13   0.00  sector_coverage   caught
+packet_loss       1  0.050  0.946+-0.061   0.7%   1.4   0.94   0.97  ground_flatness   ok
+packet_loss       2  0.100  0.923+-0.064   3.0%   2.5   0.90   0.96  sector_coverage   ok
+packet_loss       3  0.200  0.911+-0.063   4.4%   7.4   0.78   0.88  return_rate       ok
+packet_loss       4  0.300  0.839+-0.103  11.9%   9.4   0.70   0.78  sector_coverage   caught
+packet_loss       5  0.500  0.704+-0.061  26.1%  12.8   0.47   0.46  sector_coverage   caught
+fog               1  0.005  0.894+-0.090   6.1%  21.0   0.90   0.59  near_clutter      false alarm
+fog               2  0.010  0.808+-0.095  15.2%  25.5   0.81   0.07  near_clutter      caught
+fog               3  0.020  0.628+-0.102  34.1%  22.6   0.66   0.00  near_clutter      caught
+fog               4  0.030  0.514+-0.129  46.0%  20.0   0.55   0.00  near_clutter      caught
+fog               5  0.060  0.324+-0.069  66.0%  20.2   0.31   0.00  near_clutter      caught
+motion_smear      1  5.000  0.912+-0.057   4.3%   2.5   1.00   0.98  ground_flatness   ok
+motion_smear      2 10.000  0.843+-0.051  11.5%   4.4   1.00   0.98  ground_flatness   SILENT FAILURE
+motion_smear      3 15.000  0.814+-0.063  14.6%   5.1   1.00   0.99  ground_flatness   SILENT FAILURE
+motion_smear      4 20.000  0.791+-0.090  16.9%   5.8   1.00   0.99  ground_flatness   SILENT FAILURE
+motion_smear      5 30.000  0.620+-0.060  34.9%  10.4   1.00   0.98  ground_flatness   SILENT FAILURE
+motion+deskew     1  5.000  0.953+-0.064   0.0%   1.2   1.00   0.98  ground_flatness   ok
+motion+deskew     2 10.000  0.953+-0.064   0.0%   1.2   1.00   0.98  ground_flatness   ok
+motion+deskew     3 15.000  0.953+-0.064   0.0%   1.2   1.00   0.98  ground_flatness   ok
+motion+deskew     4 20.000  0.953+-0.064   0.0%   1.2   1.00   0.98  ground_flatness   ok
+motion+deskew     5 30.000  0.947+-0.061   0.6%   1.5   1.00   0.98  ground_flatness   ok
+
+wrote results/: summary.csv metrics_per_scene.csv degradation_curve.png recall_by_distance.png bev_before_after.png
